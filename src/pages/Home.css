@@ -1,0 +1,777 @@
+/* BASE STYLES */
+.home-root {
+  background: #fff;
+  min-height: 100vh;
+  color: #0db6ff;
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* HERO SECTION */
+.header-hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0 2rem 0;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 320px;
+  gap: 90px;
+}
+
+.hero-text-side {
+  flex: 1;
+  text-align: left;
+  padding-left: 70px;
+  min-width: 380px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.animated-line {
+  display: block;
+  opacity: 0;
+  font-weight: 900;
+  font-size: 3rem;
+  color: #3fccfc;
+  white-space: nowrap;
+  animation: slideinrepeat 5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+.animated-line.delay1 { animation-delay: 0.2s; }
+.animated-line.delay2 { animation-delay: 0.5s; }
+.animated-line.delay3 {
+  animation-delay: 0.8s;
+  font-weight: 600;
+  font-size: 1.7rem;
+  color: #000;
+  margin-top: 22px;
+  margin-bottom: 10px;
+  white-space: normal;
+}
+
+@keyframes slideinrepeat {
+  0% { transform: translateX(-350px); opacity: 0; }
+  10% { opacity: 1; }
+  20% { transform: translateX(0); opacity: 1; }
+  80% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(-350px); opacity: 0; }
+}
+
+.image-side {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: 40px;
+}
+
+.image-container img {
+  max-width: 720px;
+  width: 100%;
+  height: auto;
+}
+
+/* ABOUT US SECTION */
+.aboutus-main {
+  transition: all 0.7s cubic-bezier(0.4, 2, 0.67, 1.1);
+  opacity: 0;
+  transform: translateY(64px) scale(0.98);
+  max-width: 960px;
+  margin: 16px auto 0 auto;
+  padding: 36px 30px 40px 30px;
+  background: transparent;
+  text-align: center;
+  pointer-events: none;
+}
+
+.aboutus-main.aboutus-animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.aboutus-title {
+  font-size: 3.3rem;
+  color: #3fccfc;
+  font-weight: 900;
+  margin-bottom: 24px;
+  letter-spacing: 1px;
+}
+
+.aboutus-sub {
+  font-size: 1.5rem;
+  font-weight: 750;
+  color: #000;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+.aboutus-desc {
+  font-size: 1.1rem;
+  color: #3d4d52;
+  opacity: 0.97;
+  line-height: 1.8;
+  font-weight: 650;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* SERVICES SECTION */
+.services-section {
+  transition: all 0.7s cubic-bezier(0.4, 2, 0.67, 1.1);
+  opacity: 0;
+  transform: translateY(64px) scale(0.98);
+  max-width: 1540px;
+  margin: 78px auto 0 auto;
+  padding: 28px 10px 44px 10px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.services-section.services-animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.services-title {
+  font-size: 3.3rem;
+  font-weight: 900;
+  color: #3fccfc;
+  margin-bottom: 54px;
+  letter-spacing: 0.8px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 75px 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.service-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 250px;
+  max-width: 410px;
+  margin: 0 auto;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.service-col:hover {
+  transform: translateY(-5px);
+}
+
+.service-img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 22px;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  color: #000;
+  font-weight: 800;
+  margin-bottom: 16px;
+  margin-top: 9px;
+  letter-spacing: 0.8px;
+}
+
+.service-desc {
+  font-size: 1.1rem;
+  color: #3d4d52;
+  opacity: 0.98;
+  font-weight: 600;
+  margin-top: 0;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.learn-more-btn {
+  background: #3fccfc;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: all 0.2s;
+  box-shadow: 0 3px 12px rgba(63, 204, 252, 0.2);
+}
+
+.learn-more-btn:hover {
+  background: #13c2ff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(63, 204, 252, 0.35);
+}
+
+.contact-middle-btn-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 56px;
+  margin-bottom: 40px;
+}
+
+.contact-middle-btn {
+  background: #13c2ff;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 16px 44px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 16px 0 rgba(19, 194, 255, 0.13);
+  cursor: pointer;
+  transition: background 0.19s, transform 0.17s, box-shadow 0.16s;
+}
+
+.contact-middle-btn:hover {
+  background: #097ecc;
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 8px 26px 0 rgba(19, 194, 255, 0.25);
+}
+
+/* CHALLENGES */
+.challenges-section {
+  margin: 26px auto 0 auto;
+}
+
+.challenges-subtitle {
+  font-size: 1.5rem;
+  font-weight: 750;
+  color: #000;
+  margin-bottom: 44px;
+  margin-top: 4px;
+}
+
+.benefits-section {
+  /* Inherits from services-section */
+}
+
+/* 🎯 PRODILIGIX ANIMATED CARD - COMPACT ONE-TIME TRIGGER */
+.card-animation-wrapper {
+  position: relative;
+  width: 100%;
+  height: 450px; /* ✅ Reduced from 600px */
+  background: #fff;
+  overflow: hidden;
+  margin: 60px 0; /* ✅ Reduced from 80px */
+}
+
+.card-animation-wrapper::before {
+  content: "";
+  height: 0px;
+  padding: 0px;
+  border: 130em solid rgba(63, 204, 252, 0.05);
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  z-index: 1;
+  display: block;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: none;
+}
+
+.card-animation-wrapper.card-animate::before {
+  animation: puff 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, 
+             borderRadius 0.2s 2.3s linear forwards;
+}
+
+@keyframes puff {
+  0% {
+    top: 100%;
+    height: 0px;
+    padding: 0px;
+  }
+  100% {
+    top: 50%;
+    height: 100%;
+    padding: 0px 100%;
+  }
+}
+
+@keyframes borderRadius {
+  0% {
+    border-radius: 50%;
+  }
+  100% {
+    border-radius: 0px;
+  }
+}
+
+.card-animation-wrapper .profile-card {
+  background: #13c2ff;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  overflow: hidden;
+  opacity: 0;
+  margin-top: 70px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+  animation: none;
+}
+
+.card-animation-wrapper.card-animate .profile-card {
+  animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, 
+             moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, 
+             moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, 
+             materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
+
+@keyframes init {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  100% {
+    width: 56px;
+    height: 56px;
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    top: 50%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    background: #13c2ff;
+    top: 100%;
+  }
+  50% {
+    top: 40%;
+  }
+  100% {
+    top: 50%;
+    background: #E0E0E0;
+  }
+}
+
+@keyframes materia {
+  0% {
+    background: #E0E0E0;
+  }
+  50% {
+    border-radius: 4px;
+  }
+  100% {
+    width: 440px;
+    height: 280px;
+    background: #FFFFFF;
+    border-radius: 4px;
+  }
+}
+
+.card-animation-wrapper .profile-card header {
+  width: 179px;
+  height: 280px;
+  padding: 40px 20px 30px 20px;
+  display: inline-block;
+  float: left;
+  border-right: 2px dashed #EEEEEE;
+  background: #FFFFFF;
+  color: #000000;
+  margin-top: 50px;
+  opacity: 0;
+  text-align: center;
+  animation: none;
+}
+
+.card-animation-wrapper.card-animate .profile-card header {
+  animation: moveIn 1s 3.1s ease forwards;
+}
+
+@keyframes moveIn {
+  0% {
+    margin-top: 50px;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    margin-top: -20px;
+  }
+}
+
+.card-animation-wrapper .profile-card header h1 {
+  color: #097ecc;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0px 0px 5px 0px;
+}
+
+.card-animation-wrapper .profile-card header h2 {
+  color: #13c2ff;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0px 0px 5px 0px;
+}
+
+.card-animation-wrapper .profile-card header a {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  margin: 25px 30px;
+}
+
+.card-animation-wrapper .profile-card header a::after {
+  position: absolute;
+  content: "";
+  bottom: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  border: 4px solid #FFFFFF;
+  transform: scale(0);
+  background: linear-gradient(#097ecc 0%, #097ecc 50%, #13c2ff 50%, #13c2ff 100%);
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  animation: none;
+}
+
+.card-animation-wrapper.card-animate .profile-card header a::after {
+  animation: scaleIn 0.3s 3.5s ease forwards;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.card-animation-wrapper .profile-card header a > img {
+  width: 120px;
+  max-width: 100%;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0px 0px 0px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card-animation-wrapper .profile-card header a:hover > img {
+  box-shadow: 0px 0px 0px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-animation-wrapper .profile-card .profile-bio {
+  width: 175px;
+  height: 180px;
+  display: inline-block;
+  float: right;
+  padding: 50px 20px 30px 20px;
+  background: #FFFFFF;
+  color: #333333;
+  margin-top: 50px;
+  text-align: center;
+  opacity: 0;
+  animation: none;
+}
+
+.card-animation-wrapper.card-animate .profile-card .profile-bio {
+  animation: moveIn 1s 3.1s ease forwards;
+}
+
+.card-animation-wrapper .profile-card .profile-bio p {
+  margin: 0px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #097ecc;
+  font-weight: 550;
+}
+
+.card-animation-wrapper .profile-social-links {
+  width: 218px;
+  display: inline-block;
+  float: right;
+  margin: 0px;
+  padding: 15px 20px;
+  background: #FFFFFF;
+  margin-top: 50px;
+  text-align: center;
+  opacity: 0;
+  box-sizing: border-box;
+  animation: none;
+}
+
+.card-animation-wrapper.card-animate .profile-social-links {
+  animation: moveIn 1s 3.1s ease forwards;
+}
+
+.card-animation-wrapper .profile-social-links li {
+  list-style: none;
+  margin: -5px 0px 0px 0px;
+  padding: 0px;
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+
+.card-animation-wrapper .profile-social-links li a {
+  display: inline-block;
+  color: #097ecc;
+  width: 24px;
+  height: 24px;
+  padding: 6px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.card-animation-wrapper .profile-social-links li a:hover {
+  background: #13c2ff;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.card-animation-wrapper .profile-social-links li a i {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+}
+
+/* FOOTER */
+.footer-prodigilix {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f4ff 100%);
+  color: #000;
+  width: 100%;
+  padding: 54px 0 26px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 3px solid #3fccfc;
+}
+
+.footer-mainline {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3fccfc;
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(63, 204, 252, 0.2);
+}
+
+.footer-tagline {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #3d4d52;
+  text-align: center;
+  opacity: 0.97;
+  margin-bottom: 32px;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 17px;
+  margin: 8px 0 32px 0;
+}
+
+.footer-icon-link {
+  color: #fff;
+  background: #3fccfc;
+  border-radius: 9px;
+  padding: 6px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-size: 1.6rem;
+  box-shadow: 0 2px 11px 0 rgba(63, 204, 252, 0.3);
+}
+
+.footer-icon-link:hover {
+  color: #3fccfc;
+  background: #fff;
+  transform: translateY(-3px) scale(1.12);
+  box-shadow: 0 4px 16px 0 rgba(63, 204, 252, 0.4);
+}
+
+.footer-copyright {
+  font-size: 1rem;
+  color: #3d4d52;
+  opacity: 0.9;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1020px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 38px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card-animation-wrapper {
+    height: auto;
+    min-height: 400px; /* ✅ Reduced */
+    padding: 40px 20px;
+  }
+
+  @keyframes materia {
+    0% {
+      background: #E0E0E0;
+    }
+    50% {
+      border-radius: 4px;
+    }
+    100% {
+      width: 280px;
+      height: 440px;
+      background: #FFFFFF;
+      border-radius: 4px;
+    }
+  }
+
+  .card-animation-wrapper .profile-card header {
+    width: auto;
+    height: auto;
+    padding: 30px 20px;
+    display: block;
+    float: none;
+    border-right: none;
+  }
+
+  .card-animation-wrapper .profile-card .profile-bio {
+    width: auto;
+    height: auto;
+    padding: 15px 20px 30px 20px;
+    display: block;
+    float: none;
+  }
+
+  .card-animation-wrapper .profile-social-links {
+    width: 100%;
+    display: block;
+    float: none;
+  }
+
+  .footer-mainline {
+    font-size: 1.16rem;
+  }
+}
+
+/* 💎 ProDiligix Elite Shine Animation */
+.shiny-logo-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 14px; /* optional rounded look */
+  isolation: isolate; /* ensures shine layers cleanly */
+}
+
+.shiny-logo {
+  display: block;
+  max-width: 520px;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  position: relative;
+  filter: drop-shadow(0 10px 28px rgba(63, 204, 252, 0.3));
+  animation: smoothFloat 6s ease-in-out infinite;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+/* 🫧 Gentle floating effect */
+@keyframes smoothFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ⚡ Premium Shine Layer */
+.shine-overlay {
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: logoShine 3.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: lighten; /* ✅ ensures white light adds shine without changing colors */
+  filter: blur(1px);
+}
+
+/* 🌠 Shine moves left ➜ right, fast and smooth */
+@keyframes logoShine {
+  0% {
+    left: -80%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  40% {
+    left: 110%;
+    opacity: 1;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+/* Hover = faster, brighter, deeper */
+.shiny-logo-wrapper:hover .shiny-logo {
+  transform: scale(1.06);
+  filter: drop-shadow(0 14px 45px rgba(63, 204, 252, 0.55));
+}
+
+.shiny-logo-wrapper:hover .shine-overlay {
+  animation-duration: 1.8s;
+  filter: blur(0.5px);
+}
+
+/* 3-column grid for first row */
+.services-grid.grid-three {
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+}
+
+/* 2-column grid for second row, centered */
+.services-grid.grid-two {
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  justify-items: center;
+  margin-top: 50px; /* optional spacing between rows */
+}

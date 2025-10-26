@@ -1,0 +1,86 @@
+.loader-root {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #ffffff 10%, #eaf6ff 40%, #b3e0ff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* Glowing Halo behind logo */
+.loader-root::before {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(0,180,255,0.35) 0%, transparent 70%);
+  filter: blur(45px);
+  animation: pulseGlow 2s ease-in-out infinite;
+  border-radius: 50%;
+}
+
+.loader-logo-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadein 1s ease-in-out;
+}
+
+/* Logo */
+.loader-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  animation: float 2.5s ease-in-out infinite;
+  z-index: 3;
+}
+
+/* Subtle Ring */
+.loader-ring {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 5px solid rgba(0, 160, 255, 0.25);
+  border-top: 5px solid #0099ff;
+  border-radius: 50%;
+  animation: spin 1.4s linear infinite;
+  z-index: 2;
+}
+
+/* Text */
+.loader-text {
+  margin-top: 150px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: #0077b6;
+  letter-spacing: 1px;
+  animation: fadeText 1.6s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes fadeText {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadein {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}

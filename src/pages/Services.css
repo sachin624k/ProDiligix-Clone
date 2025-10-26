@@ -1,0 +1,286 @@
+/* Services.css — Enhanced, animated header styles */
+
+/* Gradient background & font */
+.services-root {
+  background: #fff;
+  min-height: 100vh;
+  color: #0db6ff;
+  font-family: Inter, Arial, sans-serif;
+}
+
+/* Header section */
+.services-header-hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0 2rem 0;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 320px;
+  gap: 90px;
+  /* No extra background for transparency */
+  position: relative;
+}
+
+/* Title area */
+.services-hero-text-side {
+  flex: 1;
+  text-align: left;
+  padding-left: 70px;
+  min-width: 340px;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+/* Animated header lines */
+.services-headline-wrapper {
+  display: inline-block;
+}
+
+.services-animated-line {
+  display: inline-block;
+  opacity: 0;
+  font-weight: 900;
+  font-size: 3rem;
+  color: #46dcff;
+  white-space: normal;
+  animation: services-slideinrepeat 1.9s cubic-bezier(0.77,0,0.175,1) 1 forwards;
+  position: relative;
+  /* Layer for extra underline effect */
+}
+.services-animated-line.services-delay1 { 
+  animation-delay: 0.2s; 
+}
+.services-animated-line.services-delay2 { 
+  animation-delay: 0.65s; 
+  font-size: 1.7rem;
+  color: #000;
+}
+.services-animated-line.services-delay3 {
+  animation-delay: 1.10s;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #000;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  white-space: normal;
+}
+
+/* Animated gradient underline for headline/hero */
+.services-animated-line.services-delay1::after {
+  content: "";
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  width: 100%; /* now this maps to just the text width! */
+  height: 5px;
+  border-radius: 7px;
+  background: linear-gradient(90deg, #13c2ff 15%, #27e5fe 92%);
+  opacity: 0;
+  transform: scaleX(0.15);
+  transition: all 0.5s cubic-bezier(.21,1.4,.45,0.97);
+  animation: underline-grow 1.05s 0.85s cubic-bezier(.12,.98,.33,1.11) forwards;
+}
+@keyframes underline-grow {
+  from { opacity: 0; transform: scaleX(0.10);}
+  to { opacity: .97; transform: scaleX(1);}
+}
+
+@keyframes services-slideinrepeat {
+  0%   { transform: translateX(-350px); opacity: 0;}
+  16%  { opacity: 1;}
+  28%  { transform: translateX(0); opacity: 1;}
+  100% { transform: translateX(0); opacity: 1;}
+}
+
+/* Subtle "shine" overlay sweep for headline effect */
+.services-header-hero::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  background: linear-gradient(110deg, rgba(30,240,255,0.07) 43%,rgba(200,255,255,0.01) 85%);
+  opacity: 0;
+  animation: header-gloss 2.4s 1.85s cubic-bezier(.22,1.2,.31,0.87) forwards;
+}
+@keyframes header-gloss {
+  from { opacity: 0;}
+  35% { opacity: 0.55;}
+  to { opacity: 0.12;}
+}
+
+.services-image-side {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: 40px;
+  z-index: 2;
+}
+.services-image-container img {
+  max-width: 720px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 54px #16edf370);
+  animation: imgfadein 1.1s 0.65s cubic-bezier(.3,2,.44,1.15) both;
+}
+@keyframes imgfadein {
+  from { opacity: 0; transform: scale(1.08) translateY(42px);}
+  to { opacity: 1; transform: scale(1) translateY(0);}
+}
+
+/* Responsive tweaks */
+@media (max-width: 1020px) {
+  .services-header-hero {
+    flex-direction: column;
+    gap: 32px;
+    min-height: unset;
+    padding-top: 2.2rem;
+  }
+  .services-hero-text-side {
+    padding-left: 8vw;
+    padding-right: 8vw;
+    min-width: 220px;
+    max-width: 680px;
+    align-items: flex-start;
+  }
+  .services-image-side {
+    justify-content: center;
+    padding-left: 0;
+  }
+  .services-image-container img {
+    max-width: 72vw;
+  }
+}
+@media (max-width: 670px) {
+  .services-header-hero { padding: 30px 0 14px 0;}
+  .services-hero-text-side { padding: 0 2vw; }
+  .services-animated-line { font-size: 1.9rem;}
+  .services-animated-line.services-delay2 { font-size: 1.03rem;}
+  .services-image-container img { max-width: 94vw;}
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  font-size: 1.14rem;
+  line-height: 1.5;
+}
+.contact-icon {
+  font-size: 1.32rem;
+  color: #18cbf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s, transform 0.18s;
+  margin-right: 3px;
+}
+.contact-row:hover .contact-icon,
+.contact-row:focus-within .contact-icon {
+  color: #26ffb3;
+  transform: scale(1.15) rotate(-9deg);
+}
+.contact-label {
+  font-weight: 700;
+  color: #19aaff;
+  min-width: 108px;
+  font-size: 1.16rem;
+  letter-spacing: 0.02em;
+}
+.contact-no     { color: #46dcff; }
+.contact-email  { color: #30cfd0; }
+.contact-hq     { color: #33f594; }
+.contact-value {
+  color: #18364a;
+  font-weight: 500;
+}
+.contact-email-link {
+  color: #0178a5;
+  text-decoration: none;
+  transition: color 0.22s;
+  font-weight: 600;
+}
+.contact-email-link:hover {
+  color: #22aced;
+  text-decoration: underline;
+}
+
+.shiny-logo-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 14px;
+  isolation: isolate;
+}
+
+.shiny-logo {
+  display: block;
+  max-width: 520px;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  position: relative;
+  filter: drop-shadow(0 10px 28px rgba(63, 204, 252, 0.3));
+  animation: smoothFloat 6s ease-in-out infinite;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+@keyframes smoothFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.shine-overlay {
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: logoShine 3.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  z-index: 2;
+  pointer-events: none;
+  mix-blend-mode: lighten;
+  filter: blur(1px);
+}
+
+@keyframes logoShine {
+  0% {
+    left: -80%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  40% {
+    left: 110%;
+    opacity: 1;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;
+  }
+}
+
+.shiny-logo-wrapper:hover .shiny-logo {
+  transform: scale(1.06);
+  filter: drop-shadow(0 14px 45px rgba(63, 204, 252, 0.55));
+}
+
+.shiny-logo-wrapper:hover .shine-overlay {
+  animation-duration: 1.8s;
+  filter: blur(0.5px);
+}

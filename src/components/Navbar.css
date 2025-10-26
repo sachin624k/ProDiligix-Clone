@@ -1,0 +1,138 @@
+.nav-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #07A8FF;
+  padding: 0 32px;
+  height: 70px;
+}
+
+/* Logo container */
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo image styles */
+.nav-logo-img {
+  height: 64px;
+  width: auto;
+  margin-right: 12px;
+  vertical-align: middle;
+  border-radius: 6px;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
+}
+
+/* Logo hover effect */
+.nav-logo-img:hover {
+  filter: drop-shadow(0 4px 16px rgba(7,168,255,0.18));
+  transform: scale(1.05);
+}
+
+/* Blur all nav menu links when hovering on logo image */
+.nav-logo-img:hover ~ .nav-menu {
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+}
+
+/* Remove blur when Hover on nav menu to keep links readable */
+.nav-menu:hover {
+  filter: none;
+}
+
+.nav-logo-text {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.nav-menu a {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+  color: #fcd127;
+}
+
+.nav-login-btn {
+  background-color: #005f99;
+  color: #fff;
+  padding: 9px 28px;
+  border-radius: 9px;
+  font-weight: bold;
+  margin-left: 22px;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.nav-login-btn:hover {
+  background-color: #004a7a;
+}
+
+.nav-logout-btn {
+  margin-left: 20px;
+  background: #fff;
+  color: #07A8FF;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle .bar {
+  width: 28px;
+  height: 4px;
+  background: #fff;
+  margin: 3px 0;
+  border-radius: 7px;
+}
+
+@media (max-width: 900px) {
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #07A8FF;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    width: 100vw;
+    padding: 26px 6vw;
+    z-index: 10;
+    display: none;
+  }
+  .nav-menu.open {
+    display: flex;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+}
