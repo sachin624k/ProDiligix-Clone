@@ -59,13 +59,13 @@
 .services-animated-line.services-delay2 { 
   animation-delay: 0.65s; 
   font-size: 1.7rem;
-  color: #000;
+  color: #005f99;
 }
 .services-animated-line.services-delay3 {
   animation-delay: 1.10s;
   font-weight: 600;
   font-size: 1.1rem;
-  color: #000;
+  color: #014e7e;
   margin-top: 20px;
   margin-bottom: 0px;
   white-space: normal;

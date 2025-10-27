@@ -10,13 +10,11 @@
   height: 70px;
 }
 
-/* Logo container */
 .nav-logo {
   display: flex;
   align-items: center;
 }
 
-/* Logo image styles */
 .nav-logo-img {
   height: 64px;
   width: auto;
@@ -27,19 +25,16 @@
   cursor: pointer;
 }
 
-/* Logo hover effect */
 .nav-logo-img:hover {
   filter: drop-shadow(0 4px 16px rgba(7,168,255,0.18));
   transform: scale(1.05);
 }
 
-/* Blur all nav menu links when hovering on logo image */
 .nav-logo-img:hover ~ .nav-menu {
   filter: blur(4px);
   transition: filter 0.3s ease;
 }
 
-/* Remove blur when Hover on nav menu to keep links readable */
 .nav-menu:hover {
   filter: none;
 }
@@ -56,18 +51,56 @@
   gap: 38px;
 }
 
+/* All nav links style */
 .nav-menu a {
   color: #fff;
   font-size: 1.15rem;
   font-weight: 600;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s, box-shadow 0.3s, letter-spacing 0.25s;
+  position: relative;
 }
 
-.nav-menu a:hover {
-  color: #fcd127;
+/* Hover effects for regular links (not Login) */
+.nav-menu a:not(.nav-login-btn):hover {
+  color: #005f99; /* Sky blue text */
+  background: transparent; 
+  box-shadow: none;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 8px #07A8FF, 0 0 18px #005f99;
 }
 
+/* Animated underline: slide in left-to-right for feedback */
+.nav-menu a:not(.nav-login-btn)::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #005f99, #07A8FF);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+  opacity: 0.85;
+}
+.nav-menu a:not(.nav-login-btn):hover::after,
+.nav-menu .nav-link-active:not(.nav-login-btn)::after {
+  transform: scaleX(1);
+}
+
+/* Active Nav Link (not Login) */
+.nav-link-active:not(.nav-login-btn) {
+  color: #005f99;
+  border-bottom: 3px solid #07A8FF;
+  font-weight: 700;
+  background: none;
+  pointer-events: none;
+}
+
+/* Login Button */
 .nav-login-btn {
   background-color: #005f99;
   color: #fff;
@@ -78,13 +111,35 @@
   text-decoration: none;
   border: none;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  transition: background-color 0.3s ease;
+  transition: 
+    background-color 0.3s,
+    color 0.3s,
+    box-shadow 0.3s,
+    outline 0.3s;
 }
 
 .nav-login-btn:hover {
-  background-color: #004a7a;
+  background-color: #07A8FF;         /* Sky blue background */
+  color: #005f99 !important;         /* Deep blue text */
+  box-shadow: 0 0 16px #005f99aa;   /* Deep blue glow */
+  outline: 2px solid #005f99;       /* Deep blue border */
+  transition: 
+    color 0.3s, 
+    box-shadow 0.3s, 
+    outline 0.3s, 
+    background-color 0.3s;
 }
 
+/* Active Login Button */
+.nav-login-btn.nav-link-active {
+  background: #fff;
+  color: #07A8FF !important;
+  border: 2px solid #0077CC;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+/* Logout Button */
 .nav-logout-btn {
   margin-left: 20px;
   background: #fff;
@@ -115,6 +170,7 @@
   border-radius: 7px;
 }
 
+/* Responsive */
 @media (max-width: 900px) {
   .nav-menu {
     position: absolute;

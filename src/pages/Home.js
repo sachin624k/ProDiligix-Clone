@@ -39,7 +39,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // ABOUT US ANIMATION
+    // Animation effects (leave as is)
     const el = aboutUsRef.current;
     const onScroll = () => {
       if (!el) return;
@@ -53,7 +53,6 @@ export default function Home() {
     window.addEventListener("scroll", onScroll, { passive: true });
     setTimeout(onScroll, 100);
 
-    // SERVICES ANIMATION
     const servEl = servicesRef.current;
     const onScrollServ = () => {
       if (!servEl) return;
@@ -67,7 +66,6 @@ export default function Home() {
     window.addEventListener("scroll", onScrollServ, { passive: true });
     setTimeout(onScrollServ, 100);
 
-    // CHALLENGES ANIMATION
     const chalEl = challengesRef.current;
     const onScrollChal = () => {
       if (!chalEl) return;
@@ -81,7 +79,6 @@ export default function Home() {
     window.addEventListener("scroll", onScrollChal, { passive: true });
     setTimeout(onScrollChal, 100);
 
-    // BENEFITS ANIMATION
     const benEl = benefitsRef.current;
     const onScrollBenefit = () => {
       if (!benEl) return;
@@ -95,7 +92,6 @@ export default function Home() {
     window.addEventListener("scroll", onScrollBenefit, { passive: true });
     setTimeout(onScrollBenefit, 100);
 
-    // CARD ANIMATION
     const cardEl = cardAnimationRef.current;
     let hasAnimated = false;
     const onScrollCard = () => {
@@ -110,7 +106,6 @@ export default function Home() {
     window.addEventListener("scroll", onScrollCard, { passive: true });
     setTimeout(onScrollCard, 100);
 
-    // Cleanup
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("scroll", onScrollServ);
@@ -122,6 +117,7 @@ export default function Home() {
 
   return (
     <div className="home-root">
+
       {/* ========== HERO SECTION ========== */}
       <header className="header-hero">
         <div className="hero-text-side">
@@ -133,15 +129,32 @@ export default function Home() {
           </span>
         </div>
         <div className="image-side">
-  <div className="image-container">
-    <div className="shiny-logo-wrapper">
-      <img src={logo} alt="ProDiligix Logo" className="shiny-logo" />
-      <div className="shine-overlay"></div>
-    </div>
-  </div>
-</div>
-
+          <div className="image-container">
+            <div className="shiny-logo-wrapper">
+              <img src={logo} alt="ProDiligix Logo" className="shiny-logo" />
+              <div className="shine-overlay"></div>
+            </div>
+          </div>
+        </div>
       </header>
+
+      {/* ========== ACTION BUTTONS: ALIGNED AND SAME WIDTH ========== */}
+      <div className="hero-main-action-row">
+        <button className="hero-main-btn">Get Quote</button>
+        <div className="hero-track-stack">
+          <div className="hero-track-label">Track Your Shipment</div>
+          <form className="hero-track-form" onSubmit={e => e.preventDefault()}>
+            <input
+              className="hero-track-input"
+              type="text"
+              placeholder="Enter AWB Number"
+            />
+            <button type="submit" className="hero-main-btn">
+              Track Now!
+            </button>
+          </form>
+        </div>
+      </div>
 
       {/* ========== ABOUT US SECTION ========== */}
       <section ref={aboutUsRef} className="aboutus-main">
@@ -257,28 +270,6 @@ export default function Home() {
               ProDiligix – Leading the industry with Sustainable Efficiency & Maximized Value.
             </p>
           </div>
-          <ul className="profile-social-links">
-            <li>
-              <a href="https://www.facebook.com">
-                <i className="fa-brands fa-facebook-f"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com">
-                <i className="fa-brands fa-instagram"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/sachin624k">
-                <i className="fa-brands fa-x-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/company/prodiligix-technologies-pvt-ltd/posts/?feedView=all">
-                <i className="fa-brands fa-linkedin-in"></i>
-              </a>
-            </li>
-          </ul>
         </aside>
       </section>
 
@@ -369,7 +360,6 @@ export default function Home() {
         <div className="footer-copyright">&copy; 2025 ProDiligix. All rights reserved.</div>
       </footer>
 
-      {/* ========== SERVICE MODAL ========== */}
       <ServiceModal 
         service={selectedService}
         isOpen={isModalOpen}

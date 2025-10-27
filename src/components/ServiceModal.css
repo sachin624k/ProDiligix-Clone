@@ -117,7 +117,7 @@
 .modal-title {
   font-size: 2.2rem;
   font-weight: 800;
-  color: #097ecc;
+  color: #005f99;
   margin: 0;
   letter-spacing: 0.5px;
   animation: slideInFromLeft 0.5s ease 0.2s backwards;
@@ -141,7 +141,7 @@
 
 .modal-description {
   font-size: 1.2rem;
-  color: #097ecc;
+  color: #014e7e;
   font-weight: 600;
   line-height: 1.7;
   margin-bottom: 32px;
@@ -203,7 +203,7 @@
 .feature-title {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #000;
+  color: #005f99;
   margin: 0 0 16px 0;
   letter-spacing: 0.3px;
 }
@@ -219,7 +219,7 @@
 
 .feature-item {
   font-size: 1.05rem;
-  color: #3d4d52;
+  color: #005f99;
   font-weight: 600;
   line-height: 1.6;
   padding-left: 24px;
@@ -267,7 +267,7 @@
 }
 
 .modal-cta-btn {
-  background: #13c2ff;
+  background: #0673a2;
   color: #fff;
   font-weight: 700;
   font-size: 1.2rem;
@@ -281,7 +281,7 @@
 }
 
 .modal-cta-btn:hover {
-  background: #097ecc;
+  background: #07A8FF; 
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(19, 194, 255, 0.4);
 }

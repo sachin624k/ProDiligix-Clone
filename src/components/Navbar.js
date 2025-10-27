@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom"; // Use NavLink for active state
 import { useUser } from "../contexts/UserContext";
 import "./Navbar.css";
 import proLogo from '../assets/Pro.png';
@@ -11,21 +11,58 @@ export default function Navbar() {
   return (
     <header className="nav-header">
       <div className="nav-logo">
-        <Link to="/" onClick={() => setNavOpen(false)}>
+        <NavLink to="/" onClick={() => setNavOpen(false)}>
           <img src={proLogo} alt="ProDiligix" className="nav-logo-img" />
-        </Link>
+        </NavLink>
       </div>
       <nav className={`nav-menu ${navOpen ? "open" : ""}`}>
-        <Link to="/" onClick={() => setNavOpen(false)}>Home</Link>
-        <Link to="/services" onClick={() => setNavOpen(false)}>Services</Link>
-        <Link to="/about" onClick={() => setNavOpen(false)}>About Us</Link>
-        <Link to="/contact" onClick={() => setNavOpen(false)}>Contact Us</Link>
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) => isActive ? "nav-link-active" : ""}
+          onClick={() => setNavOpen(false)}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/services"
+          className={({ isActive }) => isActive ? "nav-link-active" : ""}
+          onClick={() => setNavOpen(false)}
+        >
+          Services
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) => isActive ? "nav-link-active" : ""}
+          onClick={() => setNavOpen(false)}
+        >
+          About Us
+        </NavLink>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) => isActive ? "nav-link-active" : ""}
+          onClick={() => setNavOpen(false)}
+        >
+          Contact Us
+        </NavLink>
         {!user && (
-          <Link to="/login" className="nav-login-btn" onClick={() => setNavOpen(false)}>Login</Link>
+          <NavLink
+            to="/login"
+            className={({ isActive }) => "nav-login-btn" + (isActive ? " nav-link-active" : "")}
+            onClick={() => setNavOpen(false)}
+          >
+            Login
+          </NavLink>
         )}
         {user && (
           <>
-            <Link to="/dashboard" onClick={() => setNavOpen(false)}>Dashboard</Link>
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) => isActive ? "nav-link-active" : ""}
+              onClick={() => setNavOpen(false)}
+            >
+              Dashboard
+            </NavLink>
             <button className="nav-logout-btn" onClick={logout}>Logout</button>
           </>
         )}
